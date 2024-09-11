@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Pistas - Cumpleaños</title>
+  
+  <!-- Enlace a Google Fonts para la fuente Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #5278FF;
+      color: white;
+      font-size: 24px;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      max-width: 90%;
+      padding: 20px;
+    }
+    #main-text {
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="main-text">Pulsa para continuar</p>
+  </div>
+
+  <script>
+    document.documentElement.requestFullscreen(); // Activa pantalla completa al entrar
+
+    // Definimos las diferentes etapas del juego
+    const etapas = [
+      'Por tu cumpleaños Nº14, vas a tener un juego de pistas de 14 pruebas. Tienes pistas limitadas, solo 14. Pulsa la pantalla para continuar.',
+      'La primera prueba: Tienes que encontrar una cuenta en Instagram que solo tiene un seguidor. Solicítala. Tu primera pista gratuita es 1749. Te siguen quedando 14 pistas.'
+    ];
+
+    // Variable para llevar el control de la etapa actual
+    let etapaActual = 0;
+
+    // Seleccionamos el elemento de texto principal
+    const textoPrincipal = document.getElementById('main-text');
+
+    // Función que cambia el contenido del texto según la etapa
+    function cambiarTexto() {
+      if (etapaActual < etapas.length) {
+        textoPrincipal.textContent = etapas[etapaActual];
+        etapaActual++;
+      }
+    }
+
+    // Evento para cambiar de etapa al hacer clic en la pantalla
+    textoPrincipal.addEventListener('click', cambiarTexto);
+  </script>
+</body>
+</html>
